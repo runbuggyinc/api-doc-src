@@ -1,5 +1,13 @@
-## Vehicle Transfer Order Statuses
+## Order Statuses
 
+There are 2 types of order statuses `VehicleTransferOrder` statuses and `Shipper` statuses.  
+
+Almost always the VehicleTransferOrder statuses should always be used to track placed orders through the API.
+
+VehicleTransferOrder statuess can be found using the get
+/orders/{id}/full api endpoint
+
+##VehicleTransferOrder Statuses
 The `VehicleTransferOrder.status` field has the following possible values:
 ```
 DRAFT
@@ -19,6 +27,7 @@ DELIVERED
 CANCELED
 COMPLETE
 ERROR
+PENDING
 ```
 
 ### Draft
@@ -72,3 +81,17 @@ The Vehicle Transfer Order contains errors.
 
 ### Canceled
 The Vehicle Transfer Order has been canceled.
+
+### Pending
+This is a temporary status which exists only as the order is being created.
+
+##Shipper Order Statuses
+
+These should generally not be used as they do not provide detailed enough information about the current status of the order.
+
+```ERROR
+DRAFT_CREATED
+PENDING
+CREATED
+CANCELED
+COMPLETED```
